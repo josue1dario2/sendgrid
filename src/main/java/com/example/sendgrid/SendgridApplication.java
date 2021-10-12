@@ -7,8 +7,11 @@ import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.Environment;
 
 import java.io.IOException;
 
@@ -17,9 +20,10 @@ public class SendgridApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SendgridApplication.class, args);
-
-		String apiKey = "${API_KEY}";
-		String envio = "${MAIL}";
+		Environment env;
+		String apiKey = System.getenv("API_KEY");
+				//"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\n";
+		String envio = System.getenv("MAIL");
 		String to = "thomas1amador2@gmail.com";
 		Email fromEmail = new Email(envio);
 		Email toEmail = new Email(to);
