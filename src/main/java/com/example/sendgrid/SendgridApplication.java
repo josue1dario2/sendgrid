@@ -22,8 +22,9 @@ public class SendgridApplication {
 		SpringApplication.run(SendgridApplication.class, args);
 		Environment env;
 		String apiKey = System.getenv("API_KEY");
-				//"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\n";
+
 		String envio = System.getenv("MAIL");
+		
 		String to = "thomas1amador2@gmail.com";
 		Email fromEmail = new Email(envio);
 		Email toEmail = new Email(to);
